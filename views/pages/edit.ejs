@@ -1,0 +1,62 @@
+<% layout("/layouts/boilerplate") %>
+
+<body>
+    <br><br>
+    <div class="row offset-2" >
+        <div class="col-8">
+    <h3>Edit the Product</h3>
+    <br><br>
+    <form method="post" action="/listings/<%= Listing.id %>?_method=PUT" enctype="multipart/form-data" >
+
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" 
+            name="listing[title]" 
+            value="<%= Listing.title %>" 
+            class="form-control" required>
+        </div>
+        
+        <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea name="listing[description]" 
+            value="<%= Listing.description %> "   
+             class="form-control" required>
+        </textarea>
+        </div>
+       
+
+        <div class="mb-3">
+            <label for="image" class="form-label">Image link</label>
+            <input type="file" 
+            name="listing[image]"
+            
+             class="form-control" >
+             
+        </div>
+        
+        <div class="row">
+        <div class="mb-3 col-md-4" >
+            <label for="number" class="form-label">Price</label>
+            <input type="text" 
+            name="listing[price]" 
+            value="<%= Listing.price %>"
+            class="form-control" required>
+                
+        </div>
+         
+        <div class="mb-3 col-md-4">
+            <label for="Rating" class="form-label">Rating</label>
+            <input type="number"
+             name="listing[rating]" 
+             value="<%= Listing.rating %>"
+             class="form-control" required>
+         </div>
+</div>
+        
+         <br><br>
+        <button class="btn btn-dark add-btn">ADD</button>
+        <br><br>
+    </form>
+</div>
+</div>
+</body>

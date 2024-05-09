@@ -1,0 +1,148 @@
+h1{
+    color: maroon;
+}
+
+.post{
+    background-color: blanchedalmond;
+}
+
+.username{
+    font-style: italic;
+}
+
+.main-up-header {
+    position: sticky;
+    top: 0; /* Adjust top position as needed */
+
+   
+  
+   
+    z-index: 1000; /* Ensure it's above other content if necessary */
+}
+
+
+header {
+    background-color:  #b1d235;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+}
+
+
+.header-icons {
+    display: flex;
+    align-items: center;
+  
+}
+.header-icons a {
+    margin-left: 10px;
+    color: #fff;
+    text-decoration: none;
+}
+.header-icons a:hover {
+    color: #ccc;
+}
+
+.body{
+    background-color: aqua;
+}
+
+.social{
+    padding-right: 50px;
+}
+.phone{
+    padding-left: 50px;
+    display: flex;
+    align-content: space-between;
+    justify-content: space-between;
+}
+
+.message{
+    padding-left: 30px;
+}
+.main-header {
+    background-color: #fff;
+    color: #000;
+    display: flex;
+    margin-top: 0px;
+    padding-top: 0px;
+    height: 100px;
+    padding-left: 100px;
+   
+  
+}
+.main-header a {
+    color: #000;
+    text-decoration: none;
+    margin-right: 20px;
+}
+.main-header a:hover {
+    color: #ccc;
+}
+
+.logo {
+    height: 200px;
+    width: relative;
+}
+.navbar a{
+    padding-right: 30px;
+}
+
+@media only screen and (max-width: 600px) {
+    .social {
+        display: none; /* Hide social icons on smaller screens */
+    }
+}
+
+/* Default styles */
+.navbar {
+    display: flex;
+}
+
+/* Media query for mobile screens */
+@media only screen and (max-width: 600px) {
+    .navbar {
+        display: none; /* Hide navbar on mobile */
+    }
+    .navbar-toggle {
+        display: block; /* Show navbar toggle button */
+    }
+}
+
+.nav2{
+    height: 60px;
+}
+
+nav.navbar.navbar-expand-lg.bg-body-tertiary {
+    height: 90px;
+}
+
+
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
+    color: #b1d235;
+    font-weight:700;
+    text-decoration: underline;
+    text-decoration-color: #b1d235;
+    text-decoration-style: solid;
+    text-decoration-thickness: 2px;
+}
+
+.navbar-container {
+    height: 100%; 
+    width: 100%; 
+    display: flex;
+    align-items: center;
+  }
+
+  .navbar-brand{
+    height: 100%;
+    
+  }
+
+  .logo {
+    height: 100%;
+    width: relative;
+}

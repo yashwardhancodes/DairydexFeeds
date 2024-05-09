@@ -1,0 +1,83 @@
+<% layout("/layouts/boilerplate") %>
+
+<body>
+   <br><br><br>
+    <div class="row">
+        <div class="col-8 offset-2">
+            <h3>Create a New Product</h3>
+    <form method="post" action="/listings" class="needs-validation" novalidate enctype="multipart/form-data">
+
+        <div>
+            <label for="title" class="form-label">Title</label>
+            <input type="text"
+             name="listing[title]" 
+             class="form-control">
+     </div>
+        <br>
+
+        <div>
+            <label for="description" class="form-label">Description</label>
+            <textarea name="listing[description]" 
+            class="form-control">
+          </textarea>
+
+        </div>
+    <br>
+       
+      <div>
+        <label for="image" class="form-label">Upload Image</label>
+        <input type="file" 
+        name="listing[image]" 
+        class="form-control">
+      </div>
+       <br>
+
+       <div class="row">
+    
+       <div class="col-md-4">
+        <label for="price" class="form-label">Price</label>
+        <input type="number" 
+        name="listing[price]" 
+        class="form-control">        
+       </div>
+       
+       <div class="col-md-4">
+        <label for="Rating" class="form-label">Rating</label>
+        <input type="number" 
+        name="listing[Rating]"
+         class="form-control">
+        </div>
+        <br>
+
+        
+    </div>
+        <br>
+
+        <br>
+        <button class="btn btn-dark add-btn">ADD</button>
+        <br><br>
+    </form>
+
+    <script>
+      (() => {
+  'use strict'
+
+  // Fetch all the forms we want to apply custom Bootstrap validation styles to
+  const forms = document.querySelectorAll('.needs-validation')
+
+  // Loop over them and prevent submission
+  Array.from(forms).forEach(form => {
+    form.addEventListener('submit', event => {
+      if (!form.checkValidity()) {
+        event.preventDefault()
+        event.stopPropagation()
+      }
+
+      form.classList.add('was-validated')
+    }, false)
+  })
+})();
+  </script>
+</div>
+</div>
+</body>

@@ -1,0 +1,86 @@
+<div class="main-up-header">
+  <header>
+  <div class="header-icons phone">
+      <!-- Phone Icon and Number -->
+      <div>
+          <i class="fas fa-phone"></i>&nbsp;&nbsp;&nbsp;
+          <span>940-440-1030</span>
+      </div>
+      <!-- Message Icon and Link -->
+      <div class="message">
+          <i class="fas fa-envelope"></i>
+          <a href="mailto:info@example.com">Contact Us</a>
+        </div>
+  </div>
+  <!-- Social Media Icons -->
+  <div class="header-icons social">
+      <a href="https://www.instagram.com"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.facebook.com"><i class="fab fa-facebook"></i></a>
+      <a href="https://twitter.com"><i class="fab fa-twitter"></i></a>
+  </div>
+</header>
+
+<nav id="navbar-example2" class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+  <div class="container-fluid">
+    <a href="/"><img src="/public/logo.png" class="logo"></a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+      <div class="navbar-nav">
+        <a class="nav-link" href="/#home">Home</a>
+        <a class="nav-link" href="/#aboutus">About Us</a>
+        <a class="nav-link" href="/#business">Our Business</a>
+        <a class="nav-link" href="/listings">Products</a>
+      </div>
+      <div class="navbar-nav ms-auto">
+        <% if(!currUser){ %>  
+        <a class="nav-link" href="/signup">Sign up</a>
+        <a class="nav-link" href="/login">Login</a>
+        <% } %>
+        <% if(currUser){ %>  
+        <a class="nav-link" href="/logout">Logout</a>
+        <% } %>
+      </div>
+    </div>
+  </div>
+</nav>
+
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+$(document).ready(function() {
+    // Get the current URL path
+    var path = window.location.pathname;
+
+    // Loop through each nav-link and check if its href matches the current path
+    $('.nav-link').each(function() {
+        var href = $(this).attr('href');
+        if (href === path) {
+            $(this).addClass('active'); // Add active class to the matching nav-link
+        }
+    });
+
+    // Enable Scrollspy
+    $('body').scrollspy({
+        target: '#navbar-example2', // ID of your navbar
+        offset: 56 // Adjust the offset as needed (height of your navbar)
+    });
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+    var navbarToggle = document.querySelector(".navbar-toggler");
+    var body = document.getElementById("page-body");
+
+    navbarToggle.addEventListener("click", function() {
+      if (body.classList.contains("navbar-collapsed")) {
+        body.classList.remove("navbar-collapsed");
+      } else {
+        body.classList.add("navbar-collapsed");
+      }
+    });
+  });
+</script>
+
+</div>
+ 
