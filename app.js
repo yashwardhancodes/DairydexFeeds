@@ -8,8 +8,8 @@ const mongoose=require("mongoose");
 const path=require("path");
 const engine = require('ejs-mate');
 const methodOverride=require("method-override");
-const {upload}=require("./upload.js");
-const { postImage } = require("./controller");
+// const {upload}=require("./upload.js");
+// const { postImage } = require("./controller");
 const ExpressError=require("./utils/expressError.js");
 const router=require("./routes/index.js");
 const session = require("express-session");
@@ -20,9 +20,7 @@ const User=require("./models/user.js");
 const Admin=require("./routes/admin.js");
 const UserRouter=require("./routes/user.js");
 const flash = require('connect-flash');
-
-
-
+const MongoStore = require("connect-mongo");
 app.set("views",path.join(__dirname,"views"));
 app.set("view engine","ejs");
 app.use(express.urlencoded({extended:true}))
@@ -34,8 +32,37 @@ app.use("/public",express.static('public'));
 app.use(cookieParser());
 
 
+
+
+//const mongo_url='mongodb://127.0.0.1:27017/film';
+const mongo_atlas=process.env.MONGODB_ATLAS;
+
+main().then(()=>{
+    console.log("connected to database");
+}).catch((err)=>{
+console.log("error");
+});
+
+
+ async function main(){
+     mongoose.connect(mongo_atlas);
+}
+
+const store=MongoStore.create({
+    mongoUrl:mongo_atlas,
+    crypto:{
+        secret:process.env.SECRET,
+    },
+    touchAfter:24*3600
+})
+
+store.on("error",()=>{
+    console.log("Error in mongo session store ",err);
+});
+
 const sessionOptions = {
-    secret: "mysupersecretcode",
+    store,
+    secret: process.env.SECRET,
     resave: false,
     saveUninitialized: true, 
     cookie:{
@@ -45,20 +72,6 @@ const sessionOptions = {
     }
 };
 
-
-
-const mongo_url='mongodb://127.0.0.1:27017/film';
-
-main().then(()=>{
-    console.log("connected to database");
-}).catch((err)=>{
-console.log("error");
-});
-
-
-async function main(){
-    await mongoose.connect(mongo_url);
-}
 
 
 
@@ -102,13 +115,13 @@ app.get("/aboutus",(req,res)=>{
 
 
 
-//route to upload images to database
-app.post("/",upload.single("image"),postImage);
-//app.use("/");
+// //route to upload images to database
+// app.post("/",upload.single("image"),postImage);
+// //app.use("/");
 
-app.get("/upload",(req,res)=>{
-    res.render("uploadImage.ejs");
-});
+// app.get("/upload",(req,res)=>{
+//     res.render("uploadImage.ejs");
+// });
 
 
 

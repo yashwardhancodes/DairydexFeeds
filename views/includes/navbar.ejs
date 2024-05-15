@@ -1,15 +1,17 @@
 <div class="main-up-header">
   <header>
+    <div id="google_translate_element"></div>
+
   <div class="header-icons phone">
       <!-- Phone Icon and Number -->
       <div>
           <i class="fas fa-phone"></i>&nbsp;&nbsp;&nbsp;
-          <span>940-440-1030</span>
+          <span class="contact">940-440-1030</span>
       </div>
       <!-- Message Icon and Link -->
       <div class="message">
           <i class="fas fa-envelope"></i>
-          <a href="mailto:info@example.com">Contact Us</a>
+          <a href="mailto:info@example.com" class="contact">Contact Us</a>
         </div>
   </div>
   <!-- Social Media Icons -->
@@ -23,9 +25,14 @@
 <nav id="navbar-example2" class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
   <div class="container-fluid">
     <a href="/"><img src="/public/logo.png" class="logo"></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+    
+      <label class="navbar-toggler burger"   type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" for="burger">
+        <input type="checkbox" id="burger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+ 
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
         <a class="nav-link" href="/#home">Home</a>
@@ -80,6 +87,10 @@ document.addEventListener("DOMContentLoaded", function() {
       }
     });
   });
+
+  function googleTranslateElementInit() {
+      new google.translate.TranslateElement({pageLanguage: 'en', includedLanguages: 'en,hi,mr', layout: google.translate.TranslateElement.InlineLayout.SIMPLE}, 'google_translate_element');
+    }
 </script>
 
 </div>

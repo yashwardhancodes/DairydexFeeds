@@ -2,11 +2,11 @@
 
 <body>
       <div class="row offset-2" >
-        <div class="col-8 mt-3">
-    <h3>Product Details:</h3>
+        <div class="col-9 mt-3">
+     <h2><%= Listing.title %></h2>  
 </div>
 
-   <div class="col-6 mt-3 style=">
+   <div class="col-8 mt-3 style=">
     <div class="card" style="height: 20rem; width: 20rem;"   >
         <img src="<%= Listing.image.url %> "
         class="card-img-top show-img" 
@@ -16,10 +16,14 @@
     </div>
         <div class="card-body">
           <p class="card-text">
-           <b><li><%= Listing.title %></li></b> 
-           <li><%= Listing.description %></li>
-            <li>&#8377;<%= Listing.price.toLocaleString("en-In") %></li>
-           <li><%= Listing.rating %></li>
+        
+          <p><b>Description :</b><br>
+            <%= Listing.description %> </p>
+            <p>
+                <b>Price : </b>&#8377;<%= Listing.price.toLocaleString("en-In") %>
+            </p>
+           <p><b>Product Rating : <%= Listing.rating %>&#11088;</b></p>
+           
       
 
         </div>
@@ -30,7 +34,7 @@
 
 
     
-    </div>
+    
 
     
     <% if (User && User.isAdmin) { %>
@@ -47,6 +51,6 @@
     </div>
    
 </div>
-
 <% } %>
+</div>
 </body>
